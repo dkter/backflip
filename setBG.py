@@ -12,14 +12,14 @@ import platform
 import ctypes
 
 
-def setBG_Windows(img):
+def setBGWin(img):
     "Set desktop background - Windows edition."
     print img  # debugging
     SPI_SETDESKWALLPAPER = 20
     ctypes.windll.user32.SystemParametersInfoA(SPI_SETDESKWALLPAPER, 0, img, 0)
 
 
-def setBG_Darwin(img):
+def setBGMac(img):
     "Set desktop background - Mac edition."
     SCRIPT = """
     #!/usr/bin/env bash
@@ -29,9 +29,17 @@ def setBG_Darwin(img):
     """ % (img)
     subprocess.call(SCRIPT, shell=True)
 
+dispatch = {  # Dispatch dictionary which stores background-setting functions.
+    "Windows": setBGWin,
+    "Darwin": setBGMac,
+}
 
 def setBG(img):
     "Cross-platformization of the desktop background setting."
     print img  # debugging
     system = platform.system()
-    exec "setBG_%s(%r)" % (system, img)
+    if system in dispatch:
+        dispatch[system](img)
+    else:
+        print "Your operating system is not supported."
+        sys.exit(0)
