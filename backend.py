@@ -1,7 +1,7 @@
 """
 backflip
-A desktop background changer for Windows.
-by David Teresi | Feb 2016
+An Unsplash-based desktop background changer.
+by David Teresi | 2016
 
 backend.py
 Controls all the backend stuff such as getting the pictures,
