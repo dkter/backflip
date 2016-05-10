@@ -1,4 +1,4 @@
-#backflip
+#backflip [![Code Issues](https://www.quantifiedcode.com/api/v1/project/d960998da84f47d491c2f2eb378e7abd/badge.svg)](https://www.quantifiedcode.com/app/project/d960998da84f47d491c2f2eb378e7abd)
 automatic unsplash-based desktop background changer
 
 --
