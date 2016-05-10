@@ -10,6 +10,7 @@ import subprocess
 import os
 import platform
 import ctypes
+import sys
 
 
 def setBGWin(img):
@@ -29,10 +30,33 @@ def setBGMac(img):
     """ % (img)
     subprocess.call(SCRIPT, shell=True)
 
+
+
+## Desktop Environments ##
+
+def setBGLinuxGnome(img):
+    command = "gsettings set org.gnome.desktop.background picture-uri file://%s" % (img)
+    subprocess.call(command, shell=True)
+
+
+
+dispatch_linuxde = {
+    "gnome": setBGLinuxGnome,
+}
+
+def setBGLinux(img):
+    de = os.environ.get('DESKTOP_SESSION')
+    if de in dispatch_linuxde:
+        dispatch_linuxde[de](img)
+
+
+
 dispatch = {  # Dispatch dictionary which stores background-setting functions.
     "Windows": setBGWin,
     "Darwin": setBGMac,
+    "Linux": setBGLinux,
 }
+
 
 def setBG(img):
     "Cross-platformization of the desktop background setting."
