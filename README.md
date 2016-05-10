@@ -10,3 +10,4 @@ run test1.py to change your background to a random nature-themed desktop backgro
 currently these operating systems are supported:
  - windows
  - mac
+ - linux (gnome)
