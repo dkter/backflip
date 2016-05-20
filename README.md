@@ -11,3 +11,9 @@ currently these operating systems are supported:
  - windows
  - mac
  - linux (gnome)
+
+tested on:
+ - Windows 10 64-bit
+ - OS X El Capitan 64-bit
+ - Fedora 23 Workstation 64-bit with GNOME 3
+ - Fedora 23 Workstation 64-bit with Budgie Desktop
