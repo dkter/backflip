@@ -36,12 +36,14 @@ def setBGMac(img):
 
 def setBGLinuxGnome(img):
     command = "gsettings set org.gnome.desktop.background picture-uri file://%s" % (img)
+    print command
     subprocess.call(command, shell=True)
 
 
 
 dispatch_linuxde = {
     "gnome": setBGLinuxGnome,
+    "budgie-desktop": setBGLinuxGnome,   # gnome method also works for budgie
 }
 
 def setBGLinux(img):
